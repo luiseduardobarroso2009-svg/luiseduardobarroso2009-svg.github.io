@@ -1,0 +1,111 @@
+/* ==========================================================================
+   Tokens de design
+   Paleta estritamente monocromática. Estados são indicados por forma,
+   texto e ícone — nunca só por cor.
+   ========================================================================== */
+
+:root {
+  /* Cores base */
+  --c-ink: #111312;        /* texto principal no claro */
+  --c-paper: #f3f3f0;      /* fundo off-white */
+  --c-paper-2: #e8e8e4;    /* superfícies claras secundárias */
+  --c-line: #cfd0cb;       /* linhas finas no claro */
+  --c-line-strong: #8e908b;
+  --c-muted: #565955;      /* texto secundário no claro (≈ 6.6:1) */
+  --c-night: #0b0c0c;      /* áreas escuras */
+  --c-night-2: #151716;    /* superfícies no escuro */
+  --c-night-3: #1d201f;
+  --c-night-line: #2d302e; /* linhas finas no escuro */
+  --c-night-line-strong: #545853;
+  --c-night-muted: #a4a7a2;/* texto secundário no escuro (≈ 7.9:1) */
+  --c-white: #ffffff;
+
+  /* Papéis semânticos (tema claro por padrão) */
+  --bg: var(--c-paper);
+  --bg-raised: var(--c-white);
+  --bg-sunken: var(--c-paper-2);
+  --fg: var(--c-ink);
+  --fg-muted: var(--c-muted);
+  --line: var(--c-line);
+  --line-strong: var(--c-line-strong);
+  --invert-bg: var(--c-ink);
+  --invert-fg: var(--c-paper);
+  --focus: var(--c-ink);
+  --grid-line: rgba(17, 19, 18, 0.06);
+
+  /* Tipografia */
+  --font-display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* Escala de texto (1.25 no corpo, fluida nos títulos) */
+  --fs-2xs: 0.75rem;   /* 12 */
+  --fs-xs: 0.8125rem;  /* 13 */
+  --fs-sm: 0.875rem;   /* 14 */
+  --fs-md: 1rem;       /* 16 */
+  --fs-lg: 1.125rem;   /* 18 */
+  --fs-xl: 1.3125rem;  /* 21 */
+  --fs-2xl: clamp(1.5rem, 1.2rem + 1.2vw, 1.875rem);
+  --fs-3xl: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --fs-display: clamp(2.5rem, 1.35rem + 5.6vw, 5.75rem);
+
+  --lh-tight: 1;
+  --lh-snug: 1.15;
+  --lh-body: 1.6;
+
+  /* Espaçamento (base 4 px) */
+  --s-1: 0.25rem;  /* 4 */
+  --s-2: 0.5rem;   /* 8 */
+  --s-3: 0.75rem;  /* 12 */
+  --s-4: 1rem;     /* 16 */
+  --s-5: 1.5rem;   /* 24 */
+  --s-6: 2rem;     /* 32 */
+  --s-7: 3rem;     /* 48 */
+  --s-8: 4rem;     /* 64 */
+  --s-9: 6rem;     /* 96 */
+  --s-10: 8rem;    /* 128 */
+  --section-y: clamp(var(--s-8), 5vw + 2rem, var(--s-10));
+
+  /* Layout */
+  --max: 76rem;        /* 1216 px */
+  --measure: 62ch;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --header-h: 4.25rem;
+
+  /* Bordas */
+  --bw: 1px;
+  --bw-strong: 2px;
+  --radius: 2px;
+
+  /* Foco */
+  --focus-width: 2px;
+  --focus-offset: 3px;
+
+  /* Movimento */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur: 200ms;
+}
+
+/* Áreas escuras: abertura, briefing, contato e rodapé */
+.theme-dark {
+  --bg: var(--c-night);
+  --bg-raised: var(--c-night-2);
+  --bg-sunken: var(--c-night-3);
+  --fg: var(--c-paper);
+  --fg-muted: var(--c-night-muted);
+  --line: var(--c-night-line);
+  --line-strong: var(--c-night-line-strong);
+  --invert-bg: var(--c-paper);
+  --invert-fg: var(--c-ink);
+  --focus: var(--c-paper);
+  --grid-line: rgba(243, 243, 240, 0.055);
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur: 0ms;
+  }
+}

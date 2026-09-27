@@ -1,0 +1,313 @@
+/* ==========================================================================
+   Componentes reutilizáveis
+   ========================================================================== */
+
+/* Botões ------------------------------------------------------------------ */
+.btn {
+  --btn-bg: transparent;
+  --btn-fg: var(--fg);
+  --btn-bd: var(--line-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+  min-height: 3rem;
+  padding: var(--s-3) var(--s-5);
+  border: var(--bw) solid var(--btn-bd);
+  border-radius: var(--radius);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: left;
+  text-decoration: none;
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.btn--sm {
+  min-height: 2.75rem;
+  padding: var(--s-2) var(--s-4);
+  font-size: var(--fs-sm);
+}
+
+.btn--primary {
+  --btn-bg: var(--invert-bg);
+  --btn-fg: var(--invert-fg);
+  --btn-bd: var(--invert-bg);
+}
+
+.btn--secondary {
+  --btn-bd: var(--fg);
+}
+
+.btn--ghost {
+  --btn-bd: var(--line-strong);
+}
+
+.btn__icon {
+  transition: transform var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .btn--primary:hover {
+    --btn-bg: transparent;
+    --btn-fg: var(--fg);
+    --btn-bd: var(--fg);
+  }
+
+  .btn--secondary:hover,
+  .btn--ghost:hover {
+    --btn-bg: var(--fg);
+    --btn-fg: var(--bg);
+    --btn-bd: var(--fg);
+  }
+
+  .btn:hover .btn__icon {
+    transform: translateX(2px);
+  }
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Botão de copiar ----------------------------------------------------------- */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 3rem;
+  padding: var(--s-3) var(--s-4);
+  border: var(--bw) dashed var(--line-strong);
+  border-radius: var(--radius);
+  background: transparent;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.copy-btn__icon {
+  display: inline-flex;
+}
+
+.copy-btn__icon--done,
+.copy-btn.is-copied .copy-btn__icon--idle {
+  display: none;
+}
+
+.copy-btn.is-copied .copy-btn__icon--done {
+  display: inline-flex;
+}
+
+.copy-btn.is-copied {
+  border-style: solid;
+  border-color: var(--fg);
+}
+
+@media (hover: hover) {
+  .copy-btn:hover {
+    border-style: solid;
+    border-color: var(--fg);
+  }
+}
+
+/* Aviso flutuante (cópia) --------------------------------------------------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--s-5) + env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  max-width: calc(100vw - 2rem);
+  padding: var(--s-3) var(--s-5) var(--s-3) var(--s-4);
+  border: var(--bw) solid var(--c-paper);
+  background: var(--c-ink);
+  color: var(--c-paper);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  transform: translate(-50%, calc(100% + 3rem));
+  visibility: hidden;
+  transition:
+    transform var(--dur) var(--ease),
+    visibility 0s linear var(--dur);
+}
+
+.toast.is-visible {
+  transform: translate(-50%, 0);
+  visibility: visible;
+  transition: transform var(--dur) var(--ease);
+}
+
+.toast__icon {
+  display: inline-flex;
+}
+
+/* Listas ------------------------------------------------------------------- */
+.bullets {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.bullets li {
+  position: relative;
+  padding-left: var(--s-5);
+}
+
+.bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 0.75rem;
+  height: 1px;
+  background: currentColor;
+}
+
+/* Selo --------------------------------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-self: start;
+  padding: var(--s-1) var(--s-2);
+  border: var(--bw) solid currentColor;
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Opções de formulário (rádio e caixa de seleção) -------------------------- */
+.opt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 3.25rem;
+  padding: var(--s-3) var(--s-4);
+  border: var(--bw) solid var(--line);
+  background: var(--bg-raised);
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease);
+}
+
+.opt input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.opt__box {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1.5px solid var(--line-strong);
+  color: var(--invert-fg);
+  transition: background-color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+
+.opt--radio .opt__box {
+  border-radius: 50%;
+}
+
+.opt__box .icon,
+.opt__dot {
+  opacity: 0;
+}
+
+.opt__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--fg);
+}
+
+.opt__label {
+  line-height: 1.35;
+}
+
+@media (hover: hover) {
+  .opt:hover {
+    border-color: var(--line-strong);
+  }
+}
+
+/* Marcado: borda dupla + marcador preenchido + texto em peso maior */
+.opt:has(input:checked) {
+  border-color: var(--fg);
+  box-shadow: inset 0 0 0 1px var(--fg);
+}
+
+.opt input:checked ~ .opt__label {
+  font-weight: 600;
+}
+
+.opt input:checked ~ .opt__box {
+  border-color: var(--fg);
+}
+
+.opt--checkbox input:checked ~ .opt__box {
+  background: var(--fg);
+}
+
+.opt input:checked ~ .opt__box .icon,
+.opt input:checked ~ .opt__box .opt__dot {
+  opacity: 1;
+}
+
+.opt:has(input:focus-visible) {
+  outline: var(--focus-width) solid var(--focus);
+  outline-offset: var(--focus-offset);
+}
+
+/* Campos de texto ---------------------------------------------------------- */
+.field {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.field__label {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.field__opt {
+  color: var(--fg-muted);
+  font-weight: 400;
+}
+
+.input {
+  width: 100%;
+  min-height: 3rem;
+  padding: var(--s-3) var(--s-4);
+  border: var(--bw) solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  color: var(--fg);
+  font-size: var(--fs-md); /* 16 px evita zoom automático no iOS */
+  line-height: 1.4;
+}
+
+.input::placeholder {
+  color: var(--fg-muted);
+  opacity: 1;
+}
+
+.input:focus-visible {
+  outline-offset: 0;
+  border-color: var(--fg);
+}
+
+.input--area {
+  resize: vertical;
+  min-height: 7.5rem;
+}

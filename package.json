@@ -1,0 +1,15 @@
+{
+  "name": "luis-eduardo-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site de apresentação de Luis Eduardo Barroso Santos — Desenvolvedor Web Full Stack.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node dev.mjs",
+    "start": "node dev.mjs --no-watch"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
