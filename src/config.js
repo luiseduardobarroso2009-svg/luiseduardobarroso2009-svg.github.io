@@ -21,7 +21,7 @@ export const site = {
   lang: 'pt-BR',
   locale: 'pt_BR',
 
-  title: 'Luis Eduardo — Desenvolvedor Web Full Stack',
+  title: 'Luis Eduardo Barroso Santos — Desenvolvedor Web Full Stack',
   description:
     'Sites, lojas virtuais, sistemas web, APIs e integrações sob medida — do planejamento à publicação. Converse com Luis Eduardo sobre o seu projeto.',
 
