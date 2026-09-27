@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposta de site — Gruta do Sobradinho</title>
+<meta name="description" content="Prévia de proposta de site para a Gruta do Sobradinho, criada por Luis Eduardo, desenvolvedor web.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1f2a22">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --forest:#1f2a22; --forest-2:#2c3a2f; --moss:#56684f; --stone:#e9e6df; --paper:#f7f5f0;
+  --ink:#1b1f1c; --muted:#5b625c; --line:#d6d2c8; --water:#3f6b6a; --sun:#c9a45c;
+  --serif:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --sans:"Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --max:72rem; --g:clamp(1rem,.5rem + 2.5vw,2.5rem);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,svg{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;margin:0;text-wrap:balance}
+p,ul,ol,dl,dd,figure{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+.wrap{max-width:calc(var(--max) + var(--g)*2);margin:0 auto;padding-inline:var(--g)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Faixa da proposta */
+.proposal-bar{position:sticky;top:0;z-index:30;background:#111;color:#f3f3f0;font-size:13px}
+.proposal-bar .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 16px;padding-block:8px}
+.proposal-bar a{color:#f3f3f0;font-weight:600}
+.proposal-bar b{font-weight:600}
+
+/* Cabeçalho */
+.top{position:absolute;inset:auto 0 auto 0;z-index:5;color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.logo{font-family:var(--serif);font-size:26px;text-decoration:none;line-height:1}
+.logo small{display:block;font:500 11px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.top nav ul{display:flex;gap:22px;list-style:none;padding:0;margin:0;font-size:15px}
+.top nav a{text-decoration:none;opacity:.9}.top nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:.3em}
+@media (max-width:760px){.top nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:999px;border:1px solid transparent;font:600 15px/1.2 var(--sans);text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn svg{flex:none}
+.btn-wa{background:#fff;color:var(--forest)}.btn-wa:hover{background:var(--sun);color:var(--ink)}
+.btn-ghost{border-color:rgba(255,255,255,.6);color:#fff}.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-dark{background:var(--forest);color:#fff}.btn-dark:hover{background:var(--moss)}
+.btn-line{border-color:var(--forest);color:var(--forest)}.btn-line:hover{background:var(--forest);color:#fff}
+
+/* Foto ilustrativa (espaço reservado para as fotos reais) */
+.ph{position:relative;overflow:hidden;background:var(--forest-2)}
+.ph::after{content:attr(data-label);position:absolute;left:12px;bottom:12px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,.45);color:#fff;font:500 12px var(--sans);letter-spacing:.02em}
+.ph-serra{background:
+  radial-gradient(120% 60% at 70% 110%, #3f6b6a 0 38%, transparent 39%),
+  linear-gradient(170deg, transparent 52%, #25332a 52.2% 66%, transparent 66.2%),
+  linear-gradient(160deg, transparent 44%, #34453a 44.2% 70%, transparent 70.2%),
+  linear-gradient(180deg,#c9a45c 0%,#b98f58 28%,#7f8c74 55%,#2c3a2f 100%)}
+.ph-agua{background:
+  repeating-linear-gradient(175deg, rgba(255,255,255,.10) 0 2px, transparent 2px 14px),
+  linear-gradient(180deg,#56684f 0%,#3f6b6a 55%,#27403f 100%)}
+.ph-quarto{background:
+  linear-gradient(90deg, transparent 58%, rgba(255,255,255,.08) 58% 60%, transparent 60%),
+  linear-gradient(180deg,#e9e6df 0 45%, #cfc6b4 45% 70%, #8d7b62 70%)}
+.ph-gruta{background:
+  radial-gradient(40% 55% at 50% 85%, #0e1310 0 60%, transparent 61%),
+  radial-gradient(90% 70% at 50% 100%, #3a3a33 0 55%, transparent 56%),
+  linear-gradient(180deg,#56684f,#2c3a2f)}
+
+/* Abertura */
+.hero{position:relative;min-height:min(92vh,760px);display:grid;align-items:end;color:#fff}
+.hero .ph{position:absolute;inset:0}
+.hero .ph::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.05) 35%,rgba(17,24,19,.75))}
+.hero-in{position:relative;z-index:2;padding-block:120px 56px;display:grid;gap:20px}
+.kicker{font:600 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;opacity:.9}
+.hero h1{font-size:clamp(2.9rem,1.6rem + 6vw,6.2rem);max-width:13ch}
+.hero h1 em{font-style:italic;color:#f1dcad}
+.hero p.lead{max-width:40rem;font-size:clamp(1.05rem,1rem + .4vw,1.25rem);opacity:.95}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;padding-top:6px}
+
+/* Fatos rápidos */
+.facts{background:var(--forest);color:#fff}
+.facts ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr))}
+.facts li{padding:20px 18px;border-left:1px solid rgba(255,255,255,.15);display:grid;gap:2px}
+.facts li:first-child{border-left:0}
+.facts b{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1}
+.facts span{font-size:14px;opacity:.8}
+
+section.block{padding-block:clamp(4rem,3rem + 4vw,7rem)}
+.head{display:grid;gap:12px;max-width:44rem;margin-bottom:40px}
+.eyebrow{font:600 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--moss)}
+.head h2{font-size:clamp(2.2rem,1.5rem + 3vw,3.6rem)}
+.head p{color:var(--muted);font-size:17px}
+
+/* Acomodações */
+.rooms{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))}
+.room{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line);display:grid}
+.room .ph{aspect-ratio:4/3}
+.room-body{padding:24px;display:grid;gap:14px}
+.room h3{font-size:32px}
+.specs{display:flex;flex-wrap:wrap;gap:8px}
+.specs span{padding:5px 12px;border-radius:999px;background:var(--stone);font-size:14px}
+.room ul{padding-left:18px;color:var(--muted)}
+.room .price{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--line)}
+.room .price small{color:var(--muted)}
+
+/* Incluso */
+.included{background:var(--stone)}
+.inc-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));list-style:none;padding:0}
+.inc-grid li{background:var(--paper);border-radius:14px;padding:18px 20px;display:flex;gap:12px;align-items:flex-start}
+.inc-grid svg{flex:none;margin-top:3px;color:var(--moss)}
+
+/* Gruta e day use */
+.split{display:grid;gap:40px;align-items:center}
+@media (min-width:900px){.split{grid-template-columns:1.05fr .95fr}}
+.split .ph{aspect-ratio:5/4;border-radius:18px}
+.list-check{list-style:none;padding:0;display:grid;gap:10px;margin-top:8px}
+.list-check li{padding-left:28px;position:relative}
+.list-check li::before{content:"";position:absolute;left:0;top:.55em;width:14px;height:8px;border-left:2px solid var(--moss);border-bottom:2px solid var(--moss);transform:rotate(-45deg)}
+.dayuse{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.dayuse b{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1}
+.dayuse small{display:block;color:var(--muted)}
+
+/* Reserva */
+.reserve{background:var(--forest);color:#fff}
+.reserve .head p{color:rgba(255,255,255,.8)}
+.reserve .eyebrow{color:#cbd6c2}
+.res-grid{display:grid;gap:32px}
+@media (min-width:900px){.res-grid{grid-template-columns:1fr 1.1fr}}
+.form{background:#fff;color:var(--ink);border-radius:18px;padding:clamp(20px,3vw,32px);display:grid;gap:16px}
+.row{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr))}
+.field{display:grid;gap:6px}
+.field label{font-weight:600;font-size:14px}
+.field input,.field select{min-height:48px;padding:10px 14px;border:1px solid #b9b4a8;border-radius:10px;font:16px var(--sans);background:#fff;color:var(--ink);width:100%}
+.field input:focus-visible,.field select:focus-visible{outline:2px solid var(--moss);outline-offset:1px}
+.hint{font-size:13px;color:var(--muted)}
+.error{display:none;padding:10px 14px;border-radius:10px;background:#f6e7e1;color:#6d2a17;font-size:14px}
+.error.show{display:block}
+.preview{white-space:pre-wrap;background:var(--stone);border-radius:12px;padding:14px;font-size:14px;line-height:1.5}
+.res-info{display:grid;gap:18px;align-content:start}
+.res-info dl{display:grid;gap:14px}
+.res-info dt{font:600 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#cbd6c2}
+.res-info dd{font-size:17px}
+
+/* Regras e FAQ */
+.rules{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));margin-bottom:48px}
+.rule{border-top:2px solid var(--forest);padding-top:14px;display:grid;gap:4px}
+.rule b{font-family:var(--serif);font-weight:400;font-size:28px}
+.rule span{color:var(--muted);font-size:15px}
+.note{font-size:13px;background:#fff3d6;border-radius:8px;padding:6px 10px;color:#5b4410;justify-self:start}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font-weight:600;font-size:18px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:400;font-size:24px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{padding-bottom:18px;color:var(--muted);max-width:60ch}
+
+/* Proposta para o dono */
+.pitch{background:#111;color:#f3f3f0}
+.pitch .eyebrow{color:#a4a7a2}
+.pitch .head p{color:#a4a7a2}
+.cmp{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));list-style:none;padding:0;counter-reset:c}
+.cmp li{border:1px solid #2d302e;border-radius:14px;padding:20px;display:grid;gap:8px}
+.cmp h3{font-family:var(--sans);font-weight:600;font-size:17px;line-height:1.3}
+.cmp p{color:#b9bcb7;font-size:15px}
+.cmp .now{font-size:13px;color:#8e918c}
+.next{margin-top:40px;display:grid;gap:18px;border-top:1px solid #2d302e;padding-top:32px}
+.next ol{padding-left:20px;display:grid;gap:8px;color:#d7d9d4;max-width:60ch}
+.next .actions{display:flex;flex-wrap:wrap;gap:12px}
+.pitch .btn-ghost{border-color:#545853}
+footer{background:#0b0c0c;color:#8e918c;font-size:13px;padding-block:24px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+footer a{color:#d7d9d4}
+
+.float-wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.float-wa:hover{transform:scale(1.05)}
+</style>
+</head>
+<body>
+
+<div class="proposal-bar" role="note">
+  <div class="wrap">
+    <span><b>Prévia de proposta</b> criada por Luis Eduardo para a Gruta do Sobradinho. Não é o site oficial. As imagens são ilustrativas; as informações vieram do site atual.</span>
+    <a href="#proposta">Ver o que muda →</a>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio">Gruta do Sobradinho<small>Pousada &amp; Day use · São Thomé das Letras</small></a>
+    <nav aria-label="Principal"><ul>
+      <li><a href="#acomodacoes">Acomodações</a></li>
+      <li><a href="#gruta">A gruta</a></li>
+      <li><a href="#dayuse">Day use</a></li>
+      <li><a href="#reservar">Reservar</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="ph ph-serra" data-label="Foto real: vista da serra ou da piscina" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <p class="kicker">São Thomé das Letras · MG</p>
+      <h1>Durma ao lado de uma <em>gruta</em> na serra.</h1>
+      <p class="lead">Pensão completa, travessia guiada da Gruta do Sobradinho, cachoeiras e piscinas naturais, a 16 km do centro de São Thomé das Letras.</p>
+      <div class="actions">
+        <a class="btn btn-wa" href="#reservar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4.75h16v11.5H9.5L4 20.25z"/></svg>Consultar datas pelo WhatsApp</a>
+        <a class="btn btn-ghost" href="#acomodacoes">Ver acomodações</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="facts">
+    <ul class="wrap">
+      <li><b>Pensão completa</b><span>Café, almoço e jantar inclusos</span></li>
+      <li><b>Gruta guiada</b><span>Travessia com guia e EPIs</span></li>
+      <li><b>Piscina exclusiva</b><span>Só para hóspedes</span></li>
+      <li><b>16 km</b><span>Do centro de São Thomé, por estrada de terra</span></li>
+    </ul>
+  </div>
+
+  <section class="block" id="acomodacoes" aria-labelledby="t-acom">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Acomodações</p>
+        <h2 id="t-acom">Dois jeitos de ficar</h2>
+        <p>Todas com pensão completa e acesso ao day use. Reservas a partir de 2 diárias.</p>
+      </div>
+      <div class="rooms">
+        <article class="room">
+          <div class="ph ph-quarto" data-label="Foto real: Chalé Bromélias" aria-hidden="true"></div>
+          <div class="room-body">
+            <h3>Chalé Bromélias</h3>
+            <div class="specs"><span>54 m²</span><span>Até 4 pessoas</span><span>Jacuzzi voltada para a serra</span></div>
+            <ul><li>Cama de 2,20 × 2,00 m</li><li>Ar-condicionado, aquecedor, TV, Wi-Fi e frigobar</li><li>Amenities L'Occitane</li></ul>
+            <div class="price"><small>Valor conforme a data</small><a class="btn btn-dark" href="#reservar" data-room="Chalé Bromélias">Consultar o chalé</a></div>
+          </div>
+        </article>
+        <article class="room">
+          <div class="ph ph-quarto" data-label="Foto real: Suíte com hidromassagem" aria-hidden="true"></div>
+          <div class="room-body">
+            <h3>Suítes</h3>
+            <div class="specs"><span>35 m²</span><span>Banheira de hidromassagem</span><span>Varanda</span></div>
+            <ul><li>Cama de 2,20 × 2,00 m</li><li>Ar-condicionado, aquecedor, TV, Wi-Fi e frigobar</li><li>Amenities L'Occitane</li></ul>
+            <div class="price"><small>Valor conforme a data</small><a class="btn btn-dark" href="#reservar" data-room="Suíte">Consultar a suíte</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block included" aria-labelledby="t-inc">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Está tudo incluso</p>
+        <h2 id="t-inc">Você só se preocupa em descansar</h2>
+      </div>
+      <ul class="inc-grid">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Café da manhã, almoço e jantar, com uma bebida não alcoólica por refeição</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Travessia da gruta com guia e equipamentos de proteção</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Piscina exclusiva para hóspedes</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Acesso completo ao day use: cachoeiras, piscinas de pedra, aquaplay, quadra de areia e salão de jogos</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Ingressos para a Gruta do Labirinto e o Poço Verde</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Bares, restaurante, academia e loja de artesanato</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="gruta" aria-labelledby="t-gruta">
+    <div class="wrap split">
+      <div class="ph ph-gruta" data-label="Foto real: entrada da gruta" aria-hidden="true"></div>
+      <div>
+        <div class="head" style="margin-bottom:12px">
+          <p class="eyebrow">A gruta e as águas</p>
+          <h2 id="t-gruta">Atravesse a Gruta do Sobradinho</h2>
+          <p>A travessia é feita com guia especializado e equipamentos de proteção. Depois, as águas da serra:</p>
+        </div>
+        <ul class="list-check">
+          <li>3 piscinas com cascatas e águas naturais</li>
+          <li>Cachoeiras com até 2 metros de profundidade</li>
+          <li>Aquaplay e playground para as crianças</li>
+          <li>Bar e restaurante no local</li>
+        </ul>
+        <div class="dayuse" id="dayuse">
+          <div><small>Day use · todos os dias, das 9h às 17h</small><b>R$ 70</b><small>por pessoa, com travessia da gruta, guia, EPIs e estacionamento</small></div>
+          <a class="btn btn-line" href="#reservar" data-room="Day use">Agendar day use</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reserve" id="reservar" aria-labelledby="t-res">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Reserva direta</p>
+        <h2 id="t-res">Monte seu pedido e fale com a gente</h2>
+        <p>Escolha as datas e o tipo de hospedagem. A mensagem vai pronta para o nosso WhatsApp e a equipe confirma a disponibilidade e o valor.</p>
+      </div>
+      <div class="res-grid">
+        <form class="form" id="res-form" novalidate>
+          <div class="field">
+            <label for="f-tipo">O que você procura</label>
+            <select id="f-tipo">
+              <option>Chalé Bromélias</option>
+              <option>Suíte</option>
+              <option>Tanto faz, quero a melhor opção</option>
+              <option>Day use</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="field"><label for="f-data">Chegada</label><input id="f-data" type="date"></div>
+            <div class="field" id="wrap-noites"><label for="f-noites">Diárias</label><input id="f-noites" type="number" min="2" value="2" inputmode="numeric"><span class="hint">Mínimo de 2 diárias</span></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="f-adultos">Adultos</label><input id="f-adultos" type="number" min="1" value="2" inputmode="numeric"></div>
+            <div class="field"><label for="f-criancas">Crianças</label><input id="f-criancas" type="number" min="0" value="0" inputmode="numeric"></div>
+          </div>
+          <div class="field"><label for="f-nome">Seu nome <span class="hint">(opcional)</span></label><input id="f-nome" type="text" autocomplete="name" placeholder="Como podemos te chamar"></div>
+          <p class="error" id="f-erro" role="alert"></p>
+          <div class="field"><span style="font-weight:600;font-size:14px">Mensagem que será enviada</span><p class="preview" id="f-preview" aria-live="polite"></p></div>
+          <button class="btn btn-dark" type="submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4.75h16v11.5H9.5L4 20.25z"/></svg>Enviar pedido pelo WhatsApp</button>
+          <p class="hint">O WhatsApp abre com a mensagem pronta. Nada é enviado sem você confirmar.</p>
+        </form>
+        <div class="res-info">
+          <dl>
+            <div><dt>Atendimento</dt><dd>Todos os dias, das 8h às 22h</dd></div>
+            <div><dt>WhatsApp</dt><dd>(35) 99906-0990</dd></div>
+            <div><dt>Como chegar</dt><dd>16 km do centro de São Thomé das Letras, por estrada de terra. <a href="https://www.google.com/maps/search/?api=1&amp;query=Gruta+do+Sobradinho+S%C3%A3o+Thom%C3%A9+das+Letras" target="_blank" rel="noopener">Abrir no Google Maps</a></dd></div>
+            <div><dt>Prefere o sistema de reservas?</dt><dd>O motor de reservas que vocês já usam continua disponível como segunda opção.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="t-info">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Bom saber</p>
+        <h2 id="t-info">Informações da estadia</h2>
+      </div>
+      <div class="rules">
+        <div class="rule"><b>14h</b><span>Check-in</span></div>
+        <div class="rule"><b>11h</b><span>Check-out</span><span class="note">Proposta: hoje o site mostra 11h numa página e 12h em outra. Definimos o horário certo.</span></div>
+        <div class="rule"><b>2 diárias</b><span>Mínimo por reserva</span></div>
+        <div class="rule"><b>Pets</b><span>Não são permitidos nas suítes. No day use, sim, exceto na piscina e na gruta.</span></div>
+      </div>
+      <details><summary>A estrada até a pousada é tranquila?</summary><p>O acesso é por 16 km de estrada de terra a partir do centro de São Thomé das Letras. Na versão final, aqui entram as orientações de vocês sobre o tipo de carro e a época de chuvas.</p></details>
+      <details><summary>O que está incluso na diária?</summary><p>Café da manhã, almoço e jantar (com uma bebida não alcoólica por refeição), travessia guiada da gruta, piscina exclusiva, acesso ao day use e ingressos para a Gruta do Labirinto e o Poço Verde.</p></details>
+      <details><summary>Posso levar meu pet?</summary><p>Pets não são permitidos nas suítes. No day use eles são bem-vindos, exceto na piscina e na gruta.</p></details>
+      <details><summary>Como faço a reserva?</summary><p>Pelo formulário acima, que abre o WhatsApp com seu pedido pronto, ou pelo sistema de reservas online.</p></details>
+    </div>
+  </section>
+
+  <section class="block pitch" id="proposta" aria-labelledby="t-pitch">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Para a equipe da Gruta do Sobradinho</p>
+        <h2 id="t-pitch">O que esta proposta muda em relação ao site atual</h2>
+        <p>Tudo o que está acima usa informações do site de vocês. As fotos são só ilustração: na versão final entram as fotos reais.</p>
+      </div>
+      <ul class="cmp">
+        <li><h3>Reserva com datas em 1 minuto</h3><p>O hóspede escolhe acomodação, datas e número de pessoas, e o pedido chega no WhatsApp já organizado. A equipe não precisa perguntar tudo de novo.</p><span class="now">Hoje: o link do WhatsApp abre sem nenhuma informação da reserva.</span></li>
+        <li><h3>Informações que não se contradizem</h3><p>Um único lugar para horários, regras e o que está incluso.</p><span class="now">Hoje: o check-out aparece como 11h numa página e 12h em outra.</span></li>
+        <li><h3>Tudo em uma página, rápida no celular</h3><p>A maioria dos hóspedes pesquisa pelo celular, muitas vezes com sinal fraco na estrada. Página leve, sem excesso de scripts.</p><span class="now">Hoje: conteúdo espalhado em várias páginas e links de reserva repetidos.</span></li>
+        <li><h3>Mais fácil de achar no Google</h3><p>Títulos, descrições e imagens com texto alternativo pensados para buscas como "pousada com gruta em São Thomé das Letras".</p><span class="now">Hoje: o título da página inclui "v2" e várias imagens não têm descrição.</span></li>
+        <li><h3>Sem perder o que já funciona</h3><p>O motor de reservas atual e o domínio grutasobradinho.com.br continuam. O novo site entra no lugar do atual, sem trocar de endereço.</p></li>
+        <li><h3>Mudanças simples depois</h3><p>Atualizar valores, fotos e avisos sem depender de plugin ou tema.</p></li>
+      </ul>
+      <div class="next">
+        <h3 style="font-size:32px">Próximos passos</h3>
+        <ol>
+          <li>Vocês me dizem o que acharam desta prévia e o que mudariam.</li>
+          <li>Recebo as fotos reais e confirmamos as informações: horários, valores e regras.</li>
+          <li>Envio a proposta com escopo, prazo e investimento.</li>
+          <li>Depois da aprovação, publico no domínio de vocês.</li>
+        </ol>
+        <div class="actions">
+          <a class="btn btn-wa" href="https://wa.me/5564993428204?text=Ol%C3%A1%2C%20Luis!%20Vi%20a%20pr%C3%A9via%20do%20site%20da%20Gruta%20do%20Sobradinho%20e%20quero%20conversar." target="_blank" rel="noopener">Falar com Luis Eduardo</a>
+          <a class="btn btn-ghost" href="https://luiseduardobarroso2009-svg.github.io/" target="_blank" rel="noopener">Conhecer meu trabalho</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Prévia criada por Luis Eduardo Barroso Santos, Desenvolvedor Web Full Stack · (64) 99342-8204</span>
+    <a href="https://luiseduardobarroso2009-svg.github.io/">luiseduardobarroso2009-svg.github.io</a>
+  </div>
+</footer>
+
+<a class="float-wa" href="#reservar" aria-label="Reservar pelo WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4.75h16v11.5H9.5L4 20.25z"/></svg></a>
+
+<script>
+(function(){
+  var WA='5535999060990';
+  var $=function(id){return document.getElementById(id)};
+  var tipo=$('f-tipo'),data=$('f-data'),noites=$('f-noites'),ad=$('f-adultos'),cr=$('f-criancas'),nome=$('f-nome'),prev=$('f-preview'),erro=$('f-erro'),wrapN=$('wrap-noites');
+  var hoje=new Date();hoje.setHours(0,0,0,0);
+  data.min=hoje.toISOString().slice(0,10);
+  function fmt(d){var p=d.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
+  function saida(d,n){var dt=new Date(d+'T12:00:00');dt.setDate(dt.getDate()+n);return ('0'+dt.getDate()).slice(-2)+'/'+('0'+(dt.getMonth()+1)).slice(-2)+'/'+dt.getFullYear()}
+  function msg(){
+    var day=tipo.value==='Day use',n=parseInt(noites.value,10)||0,a=parseInt(ad.value,10)||0,c=parseInt(cr.value,10)||0;
+    var l=['Olá, Gruta do Sobradinho!'+(nome.value.trim()?' Aqui é '+nome.value.trim()+'.':''),''];
+    if(day){l.push('Quero agendar um day use.');if(data.value)l.push('Data: '+fmt(data.value));}
+    else{l.push('Quero consultar uma hospedagem:');l.push('• Acomodação: '+tipo.value);if(data.value){l.push('• Chegada: '+fmt(data.value));if(n>=2)l.push('• Saída: '+saida(data.value,n)+' ('+n+' diárias)');}}
+    l.push('• Pessoas: '+a+' adulto'+(a===1?'':'s')+(c?' e '+c+' criança'+(c===1?'':'s'):''));
+    l.push('','Tem disponibilidade? Qual o valor?');
+    return l.join('\n');
+  }
+  function update(){wrapN.style.display=tipo.value==='Day use'?'none':'';prev.textContent=msg();}
+  [tipo,data,noites,ad,cr,nome].forEach(function(el){el.addEventListener('input',update);el.addEventListener('change',update)});
+  document.querySelectorAll('[data-room]').forEach(function(a){a.addEventListener('click',function(){var r=a.getAttribute('data-room');for(var i=0;i<tipo.options.length;i++){if(tipo.options[i].text===r)tipo.selectedIndex=i}update();setTimeout(function(){tipo.focus({preventScroll:true})},400)})});
+  $('res-form').addEventListener('submit',function(e){
+    e.preventDefault();var problems=[];
+    if(!data.value)problems.push('escolha a data de chegada');
+    else if(new Date(data.value+'T12:00:00')<hoje)problems.push('a data de chegada já passou');
+    if(tipo.value!=='Day use'&&(parseInt(noites.value,10)||0)<2)problems.push('a reserva mínima é de 2 diárias');
+    if((parseInt(ad.value,10)||0)<1)problems.push('informe pelo menos 1 adulto');
+    if(problems.length){erro.textContent='Para continuar, '+problems.join(' e ')+'.';erro.classList.add('show');return}
+    erro.classList.remove('show');
+    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg()),'_blank','noopener');
+  });
+  update();
+})();
+</script>
+</body>
+</html>
