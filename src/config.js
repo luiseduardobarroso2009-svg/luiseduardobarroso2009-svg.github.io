@@ -13,7 +13,7 @@ export const site = {
 
   // Código de verificação do Google Search Console (método "Tag HTML").
   // Cole só o valor de content="…". Deixe vazio se não usar.
-  googleVerification: '',
+  googleVerification: 'fpyid1bvja23mTu94CwDFmEoEexNIUqA1jd9i-iZNQM',
 
   // Data da última revisão da Política de Privacidade e dos Termos de Uso.
   legalUpdated: '27 de setembro de 2026',
