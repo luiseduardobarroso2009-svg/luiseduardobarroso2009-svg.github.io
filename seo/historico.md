@@ -21,3 +21,5 @@ Registro diário do acompanhamento do site no Google. Posições medidas numa bu
 | Luis Eduardo desenvolvedor | 4º |
 
 **Mudança:** o `<title>` da página inicial passou de "Luis Eduardo — Desenvolvedor Web Full Stack" para "Luis Eduardo Barroso Santos — Desenvolvedor Web Full Stack". Motivo: o nome completo é a consulta nº 1 e não estava no título (só no corpo e nos dados estruturados). Avaliar o efeito daqui a 1–2 semanas.
+
+_Nova verificação no mesmo dia (2ª execução):_ as 5 URLs continuam respondendo 200 e o título novo já está publicado. Search Console sem novidades: sitemap ainda "Não foi possível buscar o sitemap" (0 páginas), indexação e desempenho "em processamento". Posições não medidas de novo (poucas horas depois, não mudam). Nenhuma mudança no site.
