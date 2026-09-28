@@ -25,3 +25,23 @@ Registro diário do acompanhamento do site no Google. Posições medidas numa bu
 _Nova verificação no mesmo dia (2ª execução):_ as 5 URLs continuam respondendo 200 e o título novo já está publicado. Search Console sem novidades: sitemap ainda "Não foi possível buscar o sitemap" (0 páginas), indexação e desempenho "em processamento". Posições não medidas de novo (poucas horas depois, não mudam). Nenhuma mudança no site.
 
 _3ª execução no mesmo dia:_ site no ar (as 5 URLs respondem 200) e o novo `<title>` já está publicado. Search Console sem mudança: sitemap ainda "Não foi possível buscar", indexação e desempenho "em processamento". No Google, `site:` segue com 1 resultado, ainda com o título antigo (o Google não rastreou a página de novo). "Luis Eduardo Barroso Santos" entre aspas: fora da 1ª página (1ª página só LinkedIn). Nenhuma mudança no site.
+
+## 2026-09-28 (segunda-feira)
+
+**Site no ar:** sim. Página inicial, /privacidade.html, /termos.html, /sitemap.xml e /robots.txt respondem 200. Título novo publicado.
+
+**Search Console**
+- Sitemap (/sitemap.xml): ainda "Não foi possível buscar o sitemap", 0 páginas. O arquivo está no ar, é XML válido (`application/xml`, 3 URLs) e o robots.txt aponta para ele. Provável atraso de propriedade nova; se persistir até 30/09, reenviar o sitemap.
+- Indexação: relatório ainda "em processamento". Inspeção da página inicial: "O URL está no Google". **Solicitada a indexação da página inicial** (para o Google ler o título novo). Próxima solicitação para esta URL: não antes de 05/10.
+- Desempenho (7 e 28 dias): ainda sem dados ("em processamento").
+
+**Posições no Google**
+| Consulta | Posição |
+|---|---|
+| site:luiseduardobarroso2009-svg.github.io | 1 resultado (página inicial), ainda com o título antigo |
+| Luis Eduardo Barroso Santos | fora da 1ª página (LinkedIn, Wikipédia, Facebook…) |
+| "Luis Eduardo Barroso Santos" | fora da 1ª página (só LinkedIn) |
+| Luis Eduardo Barroso | fora da 1ª página |
+| Luis Eduardo desenvolvedor | 4º (igual a ontem) |
+
+**Mudança:** nenhuma no site. A troca de título de ontem ainda não foi lida pelo Google e o Search Console não tem dados; mudar mais agora não teria base.
